@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Result</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+<div class="logo">CareerPredictor</div>
+<nav><a href="/">Home</a><a href="/#predict">Predict Again</a></nav>
+</header>
+
+<section class="result-section">
+<div class="result-card">
+<div class="result-icon">🎯</div>
+<h1>Your Predicted Career</h1>
+<p class="result-text">Based on your skills, the recommended career path is:</p>
+<h2 class="career-name">{{ career }}</h2>
+<p>This prediction is generated using a Machine Learning model.</p>
+<a href="/" class="button">Try Again</a>
+</div>
+</section>
+
+<footer><p>Student Career Predictor | Educational Project</p></footer>
+</body>
+</html>
