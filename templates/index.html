@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Career Predictor</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+<div class="logo">CareerPredictor</div>
+<nav><a href="/">Home</a><a href="#about">About</a><a href="#predict">Predict</a></nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Student Career Predictor</h1>
+<p>Discover the career path that best matches your skills using Machine Learning.</p>
+<a href="#predict" class="button">Start Prediction</a>
+</div>
+</section>
+
+<section id="about" class="about">
+<h2>About the Project</h2>
+<p>This AI-based educational project analyzes student skills and predicts a suitable career path.</p>
+<div class="cards">
+<div class="card"><h3>🤖 Machine Learning</h3><p>Uses Random Forest to predict career options.</p></div>
+<div class="card"><h3>📊 Skill Analysis</h3><p>Analyzes programming, data and communication skills.</p></div>
+<div class="card"><h3>🎯 Career Guidance</h3><p>Provides a career suggestion based on entered skills.</p></div>
+</div>
+</section>
+
+<section id="predict" class="prediction">
+<h2>Predict Your Career</h2>
+<p>Rate your skills from 1 to 5.</p>
+<form action="/predict" method="POST" onsubmit="return validateForm()">
+<div class="form-grid">
+{% for field, label in [
+("python","Python"),("java","Java"),("sql","SQL"),("html_css","HTML & CSS"),
+("statistics","Statistics"),("machine_learning","Machine Learning"),
+("data_analysis","Data Analysis"),("communication","Communication")
+] %}
+<div class="form-group">
+<label>{{ label }}</label>
+<select name="{{ field }}" required>
+<option value="">Select</option>
+<option value="1">1 - Beginner</option>
+<option value="2">2 - Basic</option>
+<option value="3">3 - Intermediate</option>
+<option value="4">4 - Good</option>
+<option value="5">5 - Excellent</option>
+</select>
+</div>
+{% endfor %}
+</div>
+<button type="submit" class="predict-button">Predict My Career</button>
+</form>
+</section>
+
+<footer><p>© 2026 Student Career Predictor | B.Sc. Data Science Project</p></footer>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
